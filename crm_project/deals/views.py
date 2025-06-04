@@ -49,3 +49,4 @@ def deal_delete(request):
     return render(request=request,
                   template_name='deals/deal_confirm_delete.html',
                   context={'deal':deal})
+
