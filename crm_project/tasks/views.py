@@ -45,7 +45,7 @@ def task_delete(request, pk):
         task.delete()
         return redirect('task_list')
     return render(request=request,
-                  template_name='tasks/task_form.html',
+                  template_name='tasks/task_confirm_delete.html',
                   context={'task':task})
 
 
