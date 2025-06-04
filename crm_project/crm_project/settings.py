@@ -25,10 +25,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #
+    # apps 
+    'main',
     'crm',
     'deals',
     'tasks',
+    'comments',
+
+    # packages
     'rest_framework',
     'crispy_forms',
     'crispy_bootstrap5',

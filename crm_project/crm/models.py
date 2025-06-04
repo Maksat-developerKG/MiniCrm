@@ -20,14 +20,6 @@ class Client(models.Model):
     
     
 
-class Comment(models.Model):
-    content = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    task = models.ForeignKey('tasks.Task', on_delete=models.CASCADE)
-    deal = models.ForeignKey('deals.Deal', on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-
 class ActionLog(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     action = models.CharField(max_length=255)
