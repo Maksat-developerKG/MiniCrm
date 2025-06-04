@@ -15,6 +15,8 @@ ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS", cast=lambda v: [s.strip() for s i
 
 
 
+
+
 # Application definition
 
 INSTALLED_APPS = [

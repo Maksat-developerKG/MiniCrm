@@ -27,12 +27,20 @@ def add_comment(request, task_id=None, deal_id=None):
                 return redirect('task_detail', pk=task.id)
             else:
                 return redirect('deal_detail', pk=deal.id)
+        else:
+            context = {
+                'form':form,
+                'comments':Comment.objects.filter(task=task).order_by('-created_at') if task else Comment.objects.filter(deal=deal).order_by('-created_at'),
+                'task':task,
+                'deal':deal,
+            }
+            template = 'comments/task_detail.html' if task else 'comments/deal_detail.html'
+            return render(request,template,context)
+    
     else:
-        form = CommentForm()
-
-    return render(request=request,
-                  template_name='comments/comment_form.html',
-                  context={'form':form})
+        return render(request=request,
+                    template_name='comments/comment_form.html',
+                    context={'form':form})
             
 
 
